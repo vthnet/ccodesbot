@@ -112,7 +112,7 @@ async def process_referral_bonus(bot, users_col, user_id, deposit_amount):
         print(f"Referral Error: {e}")
 
 
-def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, settings_col):
+def register_recharge_handlers(dp, bot, users_col, txns_col, crypto_col, settings_col, ADMIN_IDS=None, ):
 
 
     # ==============================
