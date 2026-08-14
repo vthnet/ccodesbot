@@ -116,6 +116,17 @@ register_server3_handlers(
     exchange_rate=95.0,
 )
 
+# ================= Recharge =================
+start_auto_sweeper = register_recharge_handlers(
+    dp=dp,
+    bot=bot,
+    users_col=users_col,
+    txns_col=db["transactions"],
+    crypto_col=crypto_col,
+    settings_col=settings_col,
+    ADMIN_IDS=ADMIN_IDS,
+)
+
 # ================= FSM =================
 class AddSession(StatesGroup):
     waiting_country = State()
