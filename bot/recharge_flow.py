@@ -62,7 +62,7 @@ def get_settings(settings_col):
             "_id": "bot_settings",
             "USDT_TO_INR": 93.0,
             "MIN_USDT": 0.1,
-            "UPI_ID": "hrishantxkaushik@fam",
+            "UPI_ID": "itsakt5@ptyes",
             "BINANCE_PAY_ID": "1189183313",
             "CWALLET_ID": "62953105",
             "USDT_RATE": 90.0,
