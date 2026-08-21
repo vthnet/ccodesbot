@@ -26,8 +26,8 @@ from .oxapay import create_invoice, check_invoice
 
 # ADMINS
 
-UPI_ID2 = "Valrikchauhan@fam"
-ADMIN_IDS = [8021449673, 7659846392]
+UPI_ID2 = "valrikchauhan@fam"
+ADMIN_IDS = [8021449673]
 
 class RechargeState(StatesGroup):
     choose_method = State()

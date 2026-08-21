@@ -1214,8 +1214,8 @@ def register_server3_handlers(dp, bot, db, users_col, orders_col, settings_col,
         
         if balance < sell_price:
             kb = InlineKeyboardBuilder()
-            kb.button(text="💳 Recharge", callback_data="recharge")
-            kb.button(text="🔙 Back", callback_data="s3tg_open")
+            kb.button(text="Recharge", callback_data="recharge",style="success")
+            kb.button(text="Back", callback_data="s3tg_open",style="danger")
             kb.adjust(1)
             msg_text = f"<b>❌ Insufficient Balance!</b>\n\n<blockquote>Required: ₹{sell_price:.2f}\nAvailable: ₹{balance:.2f}</blockquote>"
             if external_status_msg:

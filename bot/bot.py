@@ -63,13 +63,18 @@ settings_col = db["settings"]
 
 #--------- Config : don't use @
 BOTUSER = "ccodes_bot"
-SUPPORT = "vthnetsupport"
-USAGE = "vthnet"
+SUPPORT = "valriks"
+USAGE = "vthchannel"
 OWNER = "valriks"
 UPDATES= "vthnet"
 CHANNEL="vthchannel"
+
 SALESLOG = "-1003349993686"
 ADMINLOG = "-1003208353049"
+# Aliases used elsewhere in the bot
+ADMINLOGS = ADMINLOG
+LOGS = SALESLOG
+
 # ================= API Configuration (Server 2) =================
 TGLION_API_KEY = "xhf1a7l64i0jdyweks"
 TGLION_ID = "8021449673"
@@ -556,21 +561,22 @@ async def cmd_start(m: Message):
 
     kb = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(style="primary", text="Buy Telegram Account", callback_data="buy", icon_custom_emoji_id="5312361253610475399")
+            InlineKeyboardButton(style="success", text="Buy Telegram Account", callback_data="buy", icon_custom_emoji_id="5271555739993782035")
         ],
         [
-            InlineKeyboardButton(style="primary", text="Balance", callback_data="balance", icon_custom_emoji_id="5256050517213211219")
+            InlineKeyboardButton(style="success", text="Balance", callback_data="balance", icon_custom_emoji_id="5256050517213211219")
         ],
         [
             InlineKeyboardButton(style="primary", text="Recharge", callback_data="recharge", icon_custom_emoji_id="5296355151743838259"),
             InlineKeyboardButton(style="primary", text="My profile", callback_data="stats", icon_custom_emoji_id="6132118786402163360")
         ],
         [
-            InlineKeyboardButton(style="primary", text="More..", callback_data="more_menu", icon_custom_emoji_id="5256127530271786963"),
+            InlineKeyboardButton(style="primary", text="Feedback", callback_data="feedback", icon_custom_emoji_id="6129421254882500490"),
             InlineKeyboardButton(style="primary", text="Refer & Earn", callback_data="refer", icon_custom_emoji_id="6046476378310710254")
         ],
         [
-            InlineKeyboardButton(style="primary", text="Feedback", callback_data="feedback", icon_custom_emoji_id="6129421254882500490")
+            
+             InlineKeyboardButton(style="danger", text="More..", callback_data="more_menu", icon_custom_emoji_id="5256127530271786963")
         ]
     ])
     await m.answer(caption, parse_mode="HTML", reply_markup=kb)
@@ -649,7 +655,7 @@ async def content_store(cq: CallbackQuery):
     kb=InlineKeyboardBuilder()
     for c in cats: kb.button(style="primary", text=c["name"], callback_data=f"content_cat:{c['_id']}")
     kb.adjust(2)
-    kb.row(InlineKeyboardButton(style="danger", text="🔙 Back", callback_data="back_main", icon_custom_emoji_id="5253997076169115797" ))
+    kb.row(InlineKeyboardButton(style="danger", text="Back", callback_data="back_main", icon_custom_emoji_id="5253997076169115797" ))
     await cq.message.edit_text("<b>📦 Other Content</b>\n\nSelect a category:", parse_mode="HTML", reply_markup=kb.as_markup())
     await cq.answer()
 
@@ -1535,22 +1541,23 @@ async def back_main(cq: CallbackQuery):
     )
 
     kb = InlineKeyboardMarkup(inline_keyboard=[
-        [
-                    InlineKeyboardButton(style="primary", text="Buy Telegram Account", callback_data="buy", icon_custom_emoji_id="5312361253610475399")
+         [
+                    InlineKeyboardButton(style="success", text="Buy Telegram Account", callback_data="buy", icon_custom_emoji_id="5271555739993782035")
                 ],
                 [
-                    InlineKeyboardButton(style="primary", text="Balance", callback_data="balance", icon_custom_emoji_id="5256050517213211219")
+                    InlineKeyboardButton(style="success", text="Balance", callback_data="balance", icon_custom_emoji_id="5256050517213211219")
                 ],
                 [
                     InlineKeyboardButton(style="primary", text="Recharge", callback_data="recharge", icon_custom_emoji_id="5296355151743838259"),
                     InlineKeyboardButton(style="primary", text="My profile", callback_data="stats", icon_custom_emoji_id="6132118786402163360")
                 ],
                 [
-                    InlineKeyboardButton(style="primary", text="More..", callback_data="more_menu", icon_custom_emoji_id="5256127530271786963"),
+                    InlineKeyboardButton(style="primary", text="Feedback", callback_data="feedback", icon_custom_emoji_id="6129421254882500490"),
                     InlineKeyboardButton(style="primary", text="Refer & Earn", callback_data="refer", icon_custom_emoji_id="6046476378310710254")
                 ],
                 [
-                    InlineKeyboardButton(style="primary", text="Feedback", callback_data="feedback", icon_custom_emoji_id="6129421254882500490")
+                    
+                     InlineKeyboardButton(style="danger", text="More..", callback_data="more_menu", icon_custom_emoji_id="5256127530271786963")
                 ]
     ])
     
@@ -1785,49 +1792,55 @@ async def callback_buy_main(cq: CallbackQuery):
     # Server 1
     if s1 == "active":
         kb.row(
-            InlineKeyboardButton(style="primary", 
-                text="◍ Server- 1 (Cheap)",
-                callback_data="buy_server1_route"
+            InlineKeyboardButton(style="success", 
+                text="Server- 1 (old acc)",
+                callback_data="buy_server1_route",
+                icon_custom_emoji_id="6298356878573307709"
             )
         )
     else:
         kb.row(
-            InlineKeyboardButton(style="primary", 
-                text="◍ Server- 1 [Maintenance 🛠️]",
+            InlineKeyboardButton(style="success", 
+                text="Server- 1[Maintenance 🛠️]",
                 callback_data="server_maintenance"
+                
             )
         )
 
     # Server 2
     if s2 == "active":
         kb.row(
-            InlineKeyboardButton(style="primary", 
-                text="◍ Server- 2 (Good Quality)",
-                callback_data="buy_server2:0"
+            InlineKeyboardButton(style="success", 
+                text="Server-2 (Good Quality)",
+                callback_data="buy_server2:0",
+                icon_custom_emoji_id="6298356878573307709"
             )
         )
     else:
         kb.row(
-            InlineKeyboardButton(style="primary", 
-                text="◍ Server- 2 [Maintenance 🛠️]",
+            InlineKeyboardButton(style="success", 
+                text="Server- 2 [Maintenance 🛠️]",
                 callback_data="server_maintenance"
+               
             )
         )
 
     # Server 3 - LZT Telegram Accounts
     if lzt:
         kb.row(
-            InlineKeyboardButton(style="primary", 
-                text="◍ Server-3(Cheap phishing Accounts)",
-                callback_data="s3tg_open"
+            InlineKeyboardButton(style="success", 
+                text="Server-3(Cheap phishing Accounts)",
+                callback_data="s3tg_open",
+                icon_custom_emoji_id="6298356878573307709"
             )
         )
 
     # Back
     kb.row(
-        InlineKeyboardButton(style="primary", 
-            text="▪️ Previous",
-            callback_data="back_main"
+        InlineKeyboardButton(style="danger", 
+            text="Back",
+            callback_data="back_main",
+            icon_custom_emoji_id="5409284148491726576"
         )
     )
 
@@ -3862,7 +3875,7 @@ async def cmd_sales(msg: Message):
         f"⚖️ Avg Price/Number: ₹{avg_price:.2f}\n"
         f"🌍 Top Country: {top_country}\n"
         f"💳 Total Recharge: ₹{total_recharge:.2f}\n\n"
-        f"@quickcodes_bot •|• @valriks"
+        f"@ccodes_bot •|• @vthchannel"
     )
 
     await msg.answer(report, parse_mode="HTML")
